@@ -7,25 +7,27 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import javax.print.DocFlavor;
-
 public class JoinLeaveListener implements Listener {
-    @EventHandler
-    public void onJoin(PlayerJoinEvent e){
-        Player player = e.getPlayer();
-        if (player.hasPlayedBefore()) {
-            e.setJoinMessage(ChatColor.GREEN + " Bem vindo de volta ao servidor." + ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GREEN + "Nós sentimos saudades de você.");
+        @EventHandler
+        public void onJoin(PlayerJoinEvent e){
+
+            Player player = e.getPlayer();
+
+            if (player.hasPlayedBefore()) {
+                e.setJoinMessage(ChatColor.GREEN + " Bem vindo de volta ao servidor. " + ChatColor.BOLD + player.getDisplayName() + ChatColor.GREEN + " sentimos saudades de você ");
             }else{
-            e.setJoinMessage(ChatColor.BLUE + "" + ChatColor.BOLD + player.getDisplayName() + ", " + ChatColor.BLUE + " Bem vindo ao melhor servidor do mundo.");
+                e.setJoinMessage(ChatColor.BLUE + "" + ChatColor.BOLD + player.getDisplayName() + ", " + ChatColor.BLUE + " bem vindo ao servidor, espero que se divirta.");
+            }
+
         }
-    }
 
 
     @EventHandler
     public void onLeave(PlayerQuitEvent event){
 
         Player player = event.getPlayer();
-        event.setQuitMessage(ChatColor.YELLOW +  "" + player.getDisplayName() + ChatColor.RED + "" + " Saiu, espero que volte algum dia.");
+
+        event.setQuitMessage(ChatColor.YELLOW + player.getDisplayName() + ChatColor.RED + " saiu, esperamos que um dia ele volte.");
 
     }
 
